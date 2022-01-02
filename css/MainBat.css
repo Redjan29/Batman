@@ -1,0 +1,103 @@
+/* CSS reset style*/ /* on fait ca pour reset tout a zero pour editer comme on veux*/
+html{
+    font-size: 62.5%;
+}
+
+body{
+    font: 1.6rem sans-serif;
+    margin: 0;
+}
+
+h1,h2,h3,p,figure,ul{ /* toutes les elements*/
+margin: 0;
+padding: 0;
+list-style-type: none; /* permet de définir l'apparence carre rond avant le texte*/
+font-weight: lighter; /* pour un font graand ou petit */
+}
+details, summary{ /*pour eviter le pointier (le box) */
+    outline: 0;
+}
+/*fin de reset*/
+*{
+    box-sizing: border-box;
+}
+/*le theme */
+:root{
+    --color-default: #222;
+    --color-main: #e9e9e9;
+    --color-text-header: #fff;     
+}
+header{
+    line-height: 6rem;
+    background-color: var(--color-default);
+    margin-bottom: 5rem;
+}
+
+header h1{
+    text-align: center;
+    color: var(--color-text-header);
+}
+header h1::before{ /*ou ::after pour mettre qq chose apres */ /*on peut ajouter l'icon quon veut à content et on peut changer le coleur*/
+    content: "</>";
+    margin-right: .5rem;
+    vertical-align: middle;
+    font-size: 2.5rem;
+}
+
+figure{
+    border: solid .1rem transparent;
+    max-width: 80rem;
+    margin:0 auto;
+    box-shadow: 0 0 1rem rgba(0, 0, 0, .5); /*rgba est mieux que le coleur plat*/
+}
+figure img{
+    display: block; /* pour ajuster l'image */
+    width: 100%;
+}
+figure figcaption h2,ul,li,details{
+    padding: 1rem;
+    
+}
+figure figcaption ul li:nth-child(2n + 2){ /* 2n+n pour faire un sur deux*/
+
+    background-color: var(--color-main);
+}
+
+figure figcaption details{
+    background-color: var(--color-main);
+} /* color = le coleur de text, background-color = le coleur de background ou valise  */ 
+
+figure figcaption p{
+    margin-top: 2rem;
+    line-height: 2.5rem; /*pour ajuster le taille de line*/
+    text-align: justify; /*comme word left right centre justify*/
+}
+details summary{/*pour la flèche*/
+    list-style-type: none;
+    cursor: pointer;
+}
+details summary::-webkit-details-marker{/*pour le arrow*/
+    display: none;
+}
+details summary::before{ /*pour le flèche*/
+
+    display: inline-block;
+    content: "\203A"; /*icon/ /content : "+"*/
+    color: #222;
+    font-size: 2rem;
+    font-weight: bolder;
+    margin-right: .5rem;
+    transform: rotate(0deg); /* pour le rotation*/
+    transition-duration: .9s ; /* pour l'animation, controler la vitess de tourner en ce cas*/
+    
+}
+
+details[open] summary::before{
+    content: "\203A"; /* on peut mettre "+" ou "-"/ /*content : "-"*/
+    transform: rotate(90deg);
+
+}
+
+/*https://hackmd.io/mb9ZGNYXSsqh-XBTrHmLZQ/*
+/*https://hackmd.io/rPHQUnc1Q1eRvtf8tPfodQ*/
+}
